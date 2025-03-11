@@ -1,9 +1,17 @@
 "use client";
 import { useEffect } from 'react';
 
+// Extend the Window interface to include particlesJS
+declare global {
+  interface Window {
+    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+    particlesJS: any;
+  }
+}
+
 
 export default function Home() {
-  const openLink = (url) => {
+  const openLink = (url: string | URL | undefined) => {
     window.open(url, '_blank');
   };
 
